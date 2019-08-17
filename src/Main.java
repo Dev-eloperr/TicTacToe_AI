@@ -5,7 +5,7 @@ public class Main {
     static int [][] board = new int[3][3];
     static ArrayList<Integer> computerList = new ArrayList<>();
     static ArrayList<Integer> humanList = new ArrayList<>();
-    
+
     public static void main(String[] args) {
         initialise(board);
         int coinToss = (int)(Math.random()*2);
@@ -20,6 +20,7 @@ public class Main {
     }
 
     private static void humanPlaysFirst(int[][] board) {
+
     }
 
     private static void computerPlaysFirst(int[][] board) {
@@ -43,27 +44,7 @@ public class Main {
         move5();
         getHumanResponse();
 
-        updateBoardUI();
-        move6();
-        getHumanResponse();
-
-        updateBoardUI();
-        move7();
-        getHumanResponse();
-
-        updateBoardUI();
-        move8();
-        getHumanResponse();
         
-    }
-
-    private static void move8() {
-    }
-
-    private static void move7() {
-    }
-
-    private static void move6() {
     }
 
     private static void move5() {
@@ -77,10 +58,24 @@ public class Main {
     }
 
     private static void move2() {
+        if (isBlank(9)){
+            go(9);
+        }
+        else{
+            go(3);
+        }
+    }
+
+    private static boolean isBlank(int i) {
+        if (computerList.contains(i) || humanList.contains(i)) {
+            return false;
+        }
+        return true;
     }
 
     private static void getHumanResponse() {
-
+        Scanner s = new Scanner(System.in);
+        humanList.add(s.nextInt());
     }
 
     private static void updateBoardUI() {
@@ -88,7 +83,11 @@ public class Main {
     }
 
     private static void move1() {
-        
+        go(5);
+    }
+
+    private static void go(int i) {
+        computerList.add(i);
     }
 
     private static void initialise(int[][] board) {
