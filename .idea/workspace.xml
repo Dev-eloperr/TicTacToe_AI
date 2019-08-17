@@ -21,8 +21,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="55" column="23" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="23" />
+            <state relative-caret-position="363">
+              <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1701#1702#0" expanded="true" />
+                <element signature="e#1719#1720#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566021465848</updated>
-      <workItem from="1566021467261" duration="1538000" />
+      <workItem from="1566021467261" duration="3220000" />
     </task>
     <task id="LOCAL-00001" summary="magic square">
       <created>1566021968728</created>
@@ -115,11 +120,32 @@
       <option name="project" value="LOCAL" />
       <updated>1566023187232</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="magic square, and started coding the algo">
+      <created>1566023456899</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566023456899</updated>
+    </task>
+    <task id="LOCAL-00004" summary="magic square, and started coding the algo">
+      <created>1566023552773</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1566023552773</updated>
+    </task>
+    <task id="LOCAL-00005" summary="magic square, and started coding the algo">
+      <created>1566024236036</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566024236036</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1538000" />
+    <option name="totallyTimeSpent" value="3220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="838" extended-state="0" />
@@ -136,11 +162,11 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.3297587" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3297587" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -167,8 +193,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="55" column="23" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="23" />
+        <state relative-caret-position="363">
+          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1701#1702#0" expanded="true" />
+            <element signature="e#1719#1720#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

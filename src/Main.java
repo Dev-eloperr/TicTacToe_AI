@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         initialise(board);
+        display(board);
         int coinToss = (int)(Math.random()*2);
 
         if (coinToss == 0 ){
@@ -54,7 +55,18 @@ public class Main {
     }
 
     private static void move3() {
+        if (possWin('C') > 0){
+            go(possWin('C'));
+        }
         
+    }
+
+    private static int possWin(char c) {
+        if (c == 'C') {
+           // for (int i = 0 ; i < )
+        }
+
+        return 0;
     }
 
     private static void move2() {
@@ -87,7 +99,24 @@ public class Main {
     }
 
     private static void go(int i) {
-        computerList.add(i);
+        if (i == 1)
+            computerList.add(8);
+        if (i == 2)
+            computerList.add(9);
+        if (i == 3)
+            computerList.add(6);
+        if (i == 4)
+            computerList.add(3);
+        if (i == 5)
+            computerList.add(5);
+        if (i == 6)
+            computerList.add(7);
+        if (i == 7)
+            computerList.add(4);
+        if (i == 8)
+            computerList.add(9);
+        if (i == 9)
+            computerList.add(2);
     }
 
     private static void initialise(int[][] board) {
