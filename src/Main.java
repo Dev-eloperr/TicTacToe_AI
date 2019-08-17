@@ -1,7 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     static int [][] board = new int[3][3];
+    static ArrayList<Integer> computerList = new ArrayList<>();
+    static ArrayList<Integer> humanList = new ArrayList<>();
+    
     public static void main(String[] args) {
         initialise(board);
         int coinToss = (int)(Math.random()*2);
@@ -76,7 +80,7 @@ public class Main {
     }
 
     private static void getHumanResponse() {
-        
+
     }
 
     private static void updateBoardUI() {
