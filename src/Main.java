@@ -1,11 +1,9 @@
 import java.util.Scanner;
 
 public class Main {
-
+    static int [][] board = new int[3][3];
     public static void main(String[] args) {
-        int [][] board = new int[3][3];
         initialise(board);
-
         int coinToss = (int)(Math.random()*2);
 
         if (coinToss == 0 ){
@@ -21,6 +19,72 @@ public class Main {
     }
 
     private static void computerPlaysFirst(int[][] board) {
+        move1();
+        updateBoardUI();
+        getHumanResponse();
+        
+        updateBoardUI();
+        move2();
+        getHumanResponse();
+        
+        updateBoardUI();
+        move3();
+        getHumanResponse();
+
+        updateBoardUI();
+        move4();
+        getHumanResponse();
+
+        updateBoardUI();
+        move5();
+        getHumanResponse();
+
+        updateBoardUI();
+        move6();
+        getHumanResponse();
+
+        updateBoardUI();
+        move7();
+        getHumanResponse();
+
+        updateBoardUI();
+        move8();
+        getHumanResponse();
+        
+    }
+
+    private static void move8() {
+    }
+
+    private static void move7() {
+    }
+
+    private static void move6() {
+    }
+
+    private static void move5() {
+    }
+
+    private static void move4() {
+    }
+
+    private static void move3() {
+        
+    }
+
+    private static void move2() {
+    }
+
+    private static void getHumanResponse() {
+        
+    }
+
+    private static void updateBoardUI() {
+        
+    }
+
+    private static void move1() {
+        
     }
 
     private static void initialise(int[][] board) {
