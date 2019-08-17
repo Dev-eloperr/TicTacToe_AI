@@ -6,8 +6,21 @@ public class Main {
         int [][] board = new int[3][3];
         initialise(board);
 
+        int coinToss = (int)(Math.random()*2);
 
+        if (coinToss == 0 ){
+            computerPlaysFirst(board); //jackson
+        }
 
+        else{
+            humanPlaysFirst(board); //dev
+        }
+    }
+
+    private static void humanPlaysFirst(int[][] board) {
+    }
+
+    private static void computerPlaysFirst(int[][] board) {
     }
 
     private static void initialise(int[][] board) {
