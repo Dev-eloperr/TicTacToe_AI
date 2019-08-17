@@ -65,7 +65,9 @@ public class Main {
         if (c == 'C') {
             for (int i = 0 ; i < computerList.size(); i ++){
                for (int j = i+1 ; j < computerList.size() ; j++ ){
-                  // if (computerList.get(i) + com)
+                  if (isBlank(15 - computerList.get(i) + computerList.get(j))){
+
+                  }
                }
             }
         }
@@ -83,7 +85,26 @@ public class Main {
     }
 
     private static boolean isBlank(int i) {
-        if (computerList.contains(i) || humanList.contains(i)) {
+        int j = 0;
+        if (i == 1)
+            j = 8;
+        if (i == 2)
+            j = 9;
+        if (i == 3)
+            j = 6;
+        if (i == 4)
+            j = 3;
+        if (i == 5)
+            j = 5;
+        if (i == 6)
+            j = 7;
+        if (i == 7)
+            j = 4;
+        if (i == 8)
+            j = 9;
+        if (i == 9)
+            j = 2;
+        if (computerList.contains(j) || humanList.contains(j)) {
             return false;
         }
         return true;
