@@ -63,7 +63,11 @@ public class Main {
 
     private static int possWin(char c) {
         if (c == 'C') {
-           // for (int i = 0 ; i < )
+            for (int i = 0 ; i < computerList.size(); i ++){
+               for (int j = i+1 ; j < computerList.size() ; j++ ){
+                  // if (computerList.get(i) + com)
+               }
+            }
         }
 
         return 0;
