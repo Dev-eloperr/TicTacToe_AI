@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Main {
     static int [][] board = new int[3][3];
-    static ArrayList<Integer> computerList = new ArrayList<>();
-    static ArrayList<Integer> humanList = new ArrayList<>();
+    static ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
+    static ArrayList<Integer> humanList = new ArrayList<>();    //saves the moves made by human
 
     public static void main(String[] args) {
         Board b = new Board();
@@ -22,7 +22,73 @@ public class Main {
     }
 
     private static void humanPlaysFirst(int[][] board) {
+        getHumanResponse();
+        updateBoardUI();
+        make_2();
+        updateBoardUI();
 
+        getHumanResponse();
+        updateBoardUI();
+        move4_h();
+        updateBoardUI();
+
+        getHumanResponse();
+        updateBoardUI();
+        move6_h();
+        updateBoardUI();
+
+        getHumanResponse();
+        updateBoardUI();
+        move8_h();
+        updateBoardUI();
+
+    }
+    private static void make_2(){
+        if (isBlank(5))
+            go(5);
+        else if (isBlank(1))
+            go(1);
+        else if (isBlank(3))
+            go(1);
+        else if (isBlank(7))
+            go(1);
+        else if (isBlank(9))
+            go(1);
+
+    }
+
+    private static void move4_h() {
+        if (possWin('H') > 0){
+            go(possWin('H'));
+        }
+        else{
+            make_2();
+        }
+    }
+    private static void move6_h(){
+        if (possWin('C')>0){
+            go(possWin('C'));
+            System.out.println("Computer Won");
+            return;
+        }
+        else if (possWin('H')>0){
+            go(possWin('H'));
+        }
+        else
+            make_2();
+    }
+
+    private static void move8_h(){
+        if (possWin('C')>0){
+            go(possWin('C'));
+            System.out.println("Computer Won");
+            return;
+        }
+        else if (possWin('H')>0){
+            go(possWin('H'));
+        }
+        else
+            go(anywhere());
     }
 
     private static void computerPlaysFirst(int[][] board) {
@@ -103,6 +169,16 @@ public class Main {
                     return d;
                   }
                }
+            }
+        }
+        else {
+            for (int i = 0 ; i < humanList.size(); i ++){
+                for (int j = i+1 ; j < humanList.size() ; j++ ){
+                    int d = 15 - humanList.get(i) + humanList.get(j);
+                    if (isBlank(d)){
+                        return d;
+                    }
+                }
             }
         }
 
