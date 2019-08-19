@@ -46,8 +46,16 @@ public class HumanPlaysFirst extends TicTacFunc{
     }
 
     private void make_2(){
-        if (isBlank(5))
+        if (isBlank(5)  )
             go(5);
+        else if (isBlank(2) && isBlank(8))
+            go(2);
+        else if (isBlank(4) && isBlank(6))
+            go(4);
+        else if (isBlank(8) && isBlank(2))
+            go(8);
+        else if (isBlank(6) && isBlank(4))
+            go(6);
         else if (isBlank(2))
             go(2);
         else if (isBlank(4))
