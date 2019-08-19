@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Main {
     static int [][] board = new int[3][3];
+    static Board b = new Board();
     static ArrayList<Integer> computerList = new ArrayList<>();
     static ArrayList<Integer> humanList = new ArrayList<>();
 
     public static void main(String[] args) {
-        Board b = new Board();
         initialise(board);
         display(board);
         int coinToss = 0;
@@ -128,37 +128,49 @@ public class Main {
     }
 
     private static void getHumanResponse() {
-        Scanner s = new Scanner(System.in);
-        go(s.nextInt());
+        while(true){
+            System.out.println("hehe");
+            if (b.isClicked){
+                b.isClicked = false;
+                break;
+            }
+        }
     }
 
     private static void updateBoardUI() {
-        char [][] b = new char[3][3];
 
         for (int i = 1; i < 10 ; i++){
-            b[(i-1)/3][(i-1)%3] = '1';
-        }
-
-        for (int i = 1; i < 10 ; i++){
-            if (isBlank(i)){
+            if(computerList.contains(i)){
                 i = findLocationOf(i);
-                b[(i-1)/3][(i-1)%3] = 'M';
-            }
-            else if(computerList.contains(i)){
-                i = findLocationOf(i);
-                b[(i-1)/3][(i-1)%3] = 'X';
+                setText(b,i,"X");
             }
             else if(humanList.contains(i)){
                 i = findLocationOf(i);
-                b[(i-1)/3][(i-1)%3] = 'O';
+                setText(b,i,"O");
             }
         }
+    }
 
-        for (int i = 0; i < b.length; i++) {
-            for (int j = 0; j < b[0].length; j++) {
-                System.out.print(b[i][j] + " ");
-            }
-            System.out.println();
+    private static void setText(Board b, int i, String text) {
+        switch (i){
+            case 1: b.button1.setText(text);
+                break;
+            case 2: b.button2.setText(text);
+                break;
+            case 3: b.button3.setText(text);
+                break;
+            case 4: b.button4.setText(text);
+                break;
+            case 5: b.button5.setText(text);
+                break;
+            case 6: b.button6.setText(text);
+                break;
+            case 7: b.button7.setText(text);
+                break;
+            case 8: b.button8.setText(text);
+                break;
+            case 9: b.button9.setText(text);
+                break;
         }
     }
 
