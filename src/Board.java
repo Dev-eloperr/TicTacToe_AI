@@ -1,11 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Board extends TicTacFunc {
-    public boolean isClicked = false;
-    public int buttonNo = 0;
+class Board extends TicTacFunc {
+    boolean isClicked = false;
+    int buttonNo = 0;
     JButton button1 = new JButton();
     JButton button3 = new JButton();
     JButton button4 = new JButton();
@@ -92,7 +90,5 @@ public class Board extends TicTacFunc {
             setVisible(true);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setLocationRelativeTo(null);
-            setlo
     }
-
 }

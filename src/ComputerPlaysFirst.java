@@ -81,9 +81,7 @@ class ComputerPlaysFirst extends TicTacFunc{
             go(3);
         }
     }
-
     private  void move1() {
         go(findLocationOf(5));
     }
-
 }
