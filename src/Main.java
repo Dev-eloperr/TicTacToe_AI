@@ -5,7 +5,8 @@ public class Main {
     static int [][] board = new int[3][3];
     static ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
     static ArrayList<Integer> humanList = new ArrayList<>();    //saves the moves made by human
-    static Board b = new Board();
+    //
+    // static Board b = new Board();
 
     public static void main(String[] args) {
         MagicSquare magicSquare = new MagicSquare();
@@ -96,21 +97,22 @@ public class Main {
         updateBoardUI();
         getHumanResponse();
 
+        System.out.println(humanList+"  "+computerList);
+
         move2();
-        updateBoardUI();
+        updateBoardUI();System.out.println(humanList+"  "+computerList);
         getHumanResponse();
 
         move3();
-        updateBoardUI();
+        updateBoardUI();System.out.println(humanList+"  "+computerList);
         getHumanResponse();
 
         move4();
-        updateBoardUI();
+        updateBoardUI();System.out.println(humanList+"  "+computerList);
         getHumanResponse();
 
-
         move4();
-        updateBoardUI();
+        updateBoardUI();System.out.println(humanList+"  "+computerList);
         getHumanResponse();
 
         
@@ -144,14 +146,15 @@ public class Main {
     private static void move3() {
         if (possWin('C') > 0){
             go(possWin('C'));
+            System.out.println("won comp");
             return;
         }
         else if (possWin('H') > 0){
             go(possWin('H'));
-            return;
+            System.out.println("block");
         }
 
-        else if(isBlank(7)){
+        else if(isBlank(transpose(7))){
             go(7);
         }
         else {
@@ -164,8 +167,8 @@ public class Main {
         if (c == 'C') {
             for (int i = 0 ; i < computerList.size(); i ++){
                for (int j = i+1 ; j < computerList.size() ; j++ ){
-                   int d = 15 - computerList.get(i) + computerList.get(j);
-                   if (isBlank(d)){
+                   int d = 15 - computerList.get(i) - computerList.get(j);
+                   if (isBlank(findLocationOf(d))){
                     return d;
                   }
                }
@@ -174,8 +177,8 @@ public class Main {
         else {
             for (int i = 0 ; i < humanList.size(); i ++){
                 for (int j = i+1 ; j < humanList.size() ; j++ ){
-                    int d = 15 - humanList.get(i) + humanList.get(j);
-                    if (isBlank(d)){
+                    int d = 15 - humanList.get(i) - humanList.get(j);
+                    if (isBlank(findLocationOf(d))){
                         return d;
                     }
                 }
@@ -186,7 +189,7 @@ public class Main {
     }
 
     private static void move2() {
-        if (isBlank(9)){
+        if (isBlank(transpose(9))){
             go(9);
         }
 
@@ -196,7 +199,7 @@ public class Main {
     }
 
     private static boolean isBlank(int i) {
-        int j = transpose(i);
+        int j = findLocationOf(i);
         if (computerList.contains(j) || humanList.contains(j)) {
             return false;
         }
@@ -205,32 +208,28 @@ public class Main {
 
     private static void getHumanResponse() {
         Scanner s = new Scanner(System.in);
-        go(s.nextInt());
+        humanList.add(transpose(s.nextInt()));
     }
 
     private static void updateBoardUI() {
         char [][] b = new char[3][3];
-
-        for (int i = 1; i < 10 ; i++){
-            b[(i-1)/3][(i-1)%3] = '1';
-        }
-
-        for (int i = 1; i < 10 ; i++){
-            if (isBlank(i)){
-                i = findLocationOf(i);
+        int i;
+        for (int j = 1; j < 10 ; j++){
+            if (isBlank(j)){
+                i = findLocationOf(j);
                 b[(i-1)/3][(i-1)%3] = 'M';
             }
-            else if(computerList.contains(i)){
-                i = findLocationOf(i);
+            else if(computerList.contains(j)){
+                i = findLocationOf(j);
                 b[(i-1)/3][(i-1)%3] = 'X';
             }
-            else if(humanList.contains(i)){
-                i = findLocationOf(i);
+            else if(humanList.contains(j)){
+                i = findLocationOf(j);
                 b[(i-1)/3][(i-1)%3] = 'O';
             }
         }
 
-        for (int i = 0; i < b.length; i++) {
+        for (i = 0; i < b.length; i++) {
             for (int j = 0; j < b[0].length; j++) {
                 System.out.print(b[i][j] + " ");
             }
