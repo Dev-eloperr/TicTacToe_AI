@@ -139,7 +139,8 @@ class TicTacFunc extends JFrame {
         //Scanner s = new Scanner(System.in);
         //humanList.add(transpose(s.nextInt()));
         while(true){
-            System.out.println(Main.b.isClicked);
+            //System.out.println(Main.b.isClicked);
+            System.out.println("1");
             if (Main.b.isClicked){
                 humanList.add(transpose(Main.b.buttonNo));
                 Main.b.isClicked = false;
