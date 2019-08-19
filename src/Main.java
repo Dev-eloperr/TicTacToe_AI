@@ -1,4 +1,3 @@
-
 public class Main {
     public static void main(String[] args) {
       //  Board b = new Board();
@@ -7,7 +6,6 @@ public class Main {
         magicSquare.initialise(board);
 
         int coinToss = (int)(Math.random()*2);
-        coinToss=1;
         if (coinToss == 0 ){
             ComputerPlaysFirst computerPlaysFirst = new ComputerPlaysFirst(); //jackson
             computerPlaysFirst.start();
