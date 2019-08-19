@@ -57,15 +57,72 @@ class TicTacFunc extends JFrame {
         for (int j = 1; j < 10 ; j++){
             if (isBlank(findLocationOf(j))){
                 i = findLocationOf(j);
-                b[(i-1)/3][(i-1)%3] = '-';
+                switch (i){
+                    case 1: Main.b.button1.setText("");
+                    break;
+                    case 2: Main.b.button2.setText("");
+                        break;
+                    case 3: Main.b.button3.setText("");
+                        break;
+                    case 4: Main.b.button4.setText("");
+                        break;
+                    case 5: Main.b.button5.setText("");
+                        break;
+                    case 6: Main.b.button6.setText("");
+                        break;
+                    case 7: Main.b.button7.setText("");
+                        break;
+                    case 8: Main.b.button8.setText("");
+                        break;
+                    case 9: Main.b.button9.setText("");
+                        break;
+                }
             }
             else if(computerList.contains(j)){
                 i = findLocationOf(j);
-                b[(i-1)/3][(i-1)%3] = 'X';
+                switch (i){
+                    case 1: Main.b.button1.setText("O");
+                        break;
+                    case 2: Main.b.button2.setText("O");
+                        break;
+                    case 3: Main.b.button3.setText("O");
+                        break;
+                    case 4: Main.b.button4.setText("O");
+                        break;
+                    case 5: Main.b.button5.setText("O");
+                        break;
+                    case 6: Main.b.button6.setText("O");
+                        break;
+                    case 7: Main.b.button7.setText("O");
+                        break;
+                    case 8: Main.b.button8.setText("O");
+                        break;
+                    case 9: Main.b.button9.setText("O");
+                        break;
+                }
             }
             else if(humanList.contains(j)){
                 i = findLocationOf(j);
-                b[(i-1)/3][(i-1)%3] = 'O';
+                switch (i){
+                    case 1: Main.b.button1.setText("X");
+                        break;
+                    case 2: Main.b.button2.setText("X");
+                        break;
+                    case 3: Main.b.button3.setText("X");
+                        break;
+                    case 4: Main.b.button4.setText("X");
+                        break;
+                    case 5: Main.b.button5.setText("X");
+                        break;
+                    case 6: Main.b.button6.setText("X");
+                        break;
+                    case 7: Main.b.button7.setText("X");
+                        break;
+                    case 8: Main.b.button8.setText("X");
+                        break;
+                    case 9: Main.b.button9.setText("X");
+                        break;
+                }
             }
         }
 
@@ -77,10 +134,18 @@ class TicTacFunc extends JFrame {
         }
     }
 
-    void getHumanResponse(int s) {
+    void getHumanResponse() {
+        int s = 0;
         //Scanner s = new Scanner(System.in);
         //humanList.add(transpose(s.nextInt()));
-        humanList.add(transpose(s));
+        while(true){
+            System.out.println(Main.b.isClicked);
+            if (Main.b.isClicked){
+                humanList.add(transpose(Main.b.buttonNo));
+                Main.b.isClicked = false;
+                break;
+            }
+        }
     }
 
     boolean isBlank(int i) {

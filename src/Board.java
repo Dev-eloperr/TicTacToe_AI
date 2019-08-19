@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 public class Board extends TicTacFunc {
     public boolean isClicked = false;
+    public int buttonNo = 0;
     JButton button1 = new JButton();
     JButton button3 = new JButton();
     JButton button4 = new JButton();
@@ -32,40 +33,40 @@ public class Board extends TicTacFunc {
 
            button1.addActionListener(e -> {
                 isClicked = true;
-                humanList.add(transpose(1));
+                buttonNo = 1;
                System.out.println("button 1 is clicked");
            });
            button2.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(2));
+               buttonNo = 2;
            });
            button3.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(3));
+               buttonNo = 3;
            });
            button4.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(4));
+               buttonNo = 4;
            });
            button5.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(5));
+               buttonNo = 5;
            });
            button6.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(6));
+               buttonNo = 6;
            });
            button7.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(7));
+               buttonNo = 7;
            });
            button8.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(8));
+               buttonNo = 8;
            });
            button9.addActionListener(e -> {
                isClicked = true;
-               humanList.add(transpose(9));
+               buttonNo = 9;
            });
 
             add(button1);

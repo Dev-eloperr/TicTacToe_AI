@@ -1,6 +1,6 @@
 public class Main {
+    static Board b = new Board();
     public static void main(String[] args) {
-        Board b = new Board();
         int [][] board = new int[3][3];
         MagicSquare magicSquare = new MagicSquare();
         magicSquare.initialise(board);
