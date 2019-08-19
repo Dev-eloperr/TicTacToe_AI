@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Main {
     static int [][] board = new int[3][3];
-    static Board b = new Board();
-    static ArrayList<Integer> computerList = new ArrayList<>();
-    static ArrayList<Integer> humanList = new ArrayList<>();
+    static ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
+    static ArrayList<Integer> humanList = new ArrayList<>();    //saves the moves made by human
 
     public static void main(String[] args) {
+        Board b = new Board();
         initialise(board);
         display(board);
         int coinToss = 0;
@@ -22,7 +22,73 @@ public class Main {
     }
 
     private static void humanPlaysFirst(int[][] board) {
+        getHumanResponse();
+        updateBoardUI();
+        make_2();
+        updateBoardUI();
 
+        getHumanResponse();
+        updateBoardUI();
+        move4_h();
+        updateBoardUI();
+
+        getHumanResponse();
+        updateBoardUI();
+        move6_h();
+        updateBoardUI();
+
+        getHumanResponse();
+        updateBoardUI();
+        move8_h();
+        updateBoardUI();
+
+    }
+    private static void make_2(){
+        if (isBlank(5))
+            go(5);
+        else if (isBlank(1))
+            go(1);
+        else if (isBlank(3))
+            go(1);
+        else if (isBlank(7))
+            go(1);
+        else if (isBlank(9))
+            go(1);
+
+    }
+
+    private static void move4_h() {
+        if (possWin('H') > 0){
+            go(possWin('H'));
+        }
+        else{
+            make_2();
+        }
+    }
+    private static void move6_h(){
+        if (possWin('C')>0){
+            go(possWin('C'));
+            System.out.println("Computer Won");
+            return;
+        }
+        else if (possWin('H')>0){
+            go(possWin('H'));
+        }
+        else
+            make_2();
+    }
+
+    private static void move8_h(){
+        if (possWin('C')>0){
+            go(possWin('C'));
+            System.out.println("Computer Won");
+            return;
+        }
+        else if (possWin('H')>0){
+            go(possWin('H'));
+        }
+        else
+            go(anywhere());
     }
 
     private static void computerPlaysFirst(int[][] board) {
@@ -105,6 +171,16 @@ public class Main {
                }
             }
         }
+        else {
+            for (int i = 0 ; i < humanList.size(); i ++){
+                for (int j = i+1 ; j < humanList.size() ; j++ ){
+                    int d = 15 - humanList.get(i) + humanList.get(j);
+                    if (isBlank(d)){
+                        return d;
+                    }
+                }
+            }
+        }
 
         return 0;
     }
@@ -128,49 +204,37 @@ public class Main {
     }
 
     private static void getHumanResponse() {
-        while(true){
-            System.out.println("hehe");
-            if (b.isClicked){
-                b.isClicked = false;
-                break;
-            }
-        }
+        Scanner s = new Scanner(System.in);
+        go(s.nextInt());
     }
 
     private static void updateBoardUI() {
+        char [][] b = new char[3][3];
 
         for (int i = 1; i < 10 ; i++){
-            if(computerList.contains(i)){
+            b[(i-1)/3][(i-1)%3] = '1';
+        }
+
+        for (int i = 1; i < 10 ; i++){
+            if (isBlank(i)){
                 i = findLocationOf(i);
-                setText(b,i,"X");
+                b[(i-1)/3][(i-1)%3] = 'M';
+            }
+            else if(computerList.contains(i)){
+                i = findLocationOf(i);
+                b[(i-1)/3][(i-1)%3] = 'X';
             }
             else if(humanList.contains(i)){
                 i = findLocationOf(i);
-                setText(b,i,"O");
+                b[(i-1)/3][(i-1)%3] = 'O';
             }
         }
-    }
 
-    private static void setText(Board b, int i, String text) {
-        switch (i){
-            case 1: b.button1.setText(text);
-                break;
-            case 2: b.button2.setText(text);
-                break;
-            case 3: b.button3.setText(text);
-                break;
-            case 4: b.button4.setText(text);
-                break;
-            case 5: b.button5.setText(text);
-                break;
-            case 6: b.button6.setText(text);
-                break;
-            case 7: b.button7.setText(text);
-                break;
-            case 8: b.button8.setText(text);
-                break;
-            case 9: b.button9.setText(text);
-                break;
+        for (int i = 0; i < b.length; i++) {
+            for (int j = 0; j < b[0].length; j++) {
+                System.out.print(b[i][j] + " ");
+            }
+            System.out.println();
         }
     }
 
