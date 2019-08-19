@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TicTacFunc {
+class TicTacFunc {
      ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
      ArrayList<Integer> humanList = new ArrayList<>();    //saves the moves made by human
     //
@@ -29,7 +29,7 @@ public class TicTacFunc {
         return 0;
     }
 
-    int transpose(int i){
+    private int transpose(int i){
         switch (i){
             case 1: return 8;
             case 2: return 1;
@@ -83,10 +83,7 @@ public class TicTacFunc {
 
     boolean isBlank(int i) {
         int j = transpose(i);
-        if (computerList.contains(j) || humanList.contains(j)) {
-            return false;
-        }
-        return true;
+        return !computerList.contains(j) && !humanList.contains(j);
     }
 
     int possWin(char c) {

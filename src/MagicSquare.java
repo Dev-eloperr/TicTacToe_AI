@@ -1,4 +1,4 @@
-public class MagicSquare {
+class MagicSquare {
     void initialise(int[][] board) {
         int n = 1;
 
@@ -10,10 +10,10 @@ public class MagicSquare {
         display(board);
     }
 
-    void display(int[][] magicSquare) {
-        for (int i = 0; i < magicSquare.length; i++) {
+    private void display(int[][] magicSquare) {
+        for (int[] ints : magicSquare) {
             for (int j = 0; j < magicSquare[0].length; j++) {
-                System.out.print(magicSquare[i][j] + " ");
+                System.out.print(ints[j] + " ");
             }
             System.out.println();
         }

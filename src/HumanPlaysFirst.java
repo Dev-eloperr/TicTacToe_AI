@@ -1,6 +1,6 @@
-public class HumanPlaysFirst extends TicTacFunc{
+class HumanPlaysFirst extends TicTacFunc{
 
-    public void start() {
+    void start() {
         getHumanResponse();
         updateBoardUI();
         System.out.println();
