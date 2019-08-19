@@ -46,7 +46,7 @@ class HumanPlaysFirst extends TicTacFunc{
     }
 
     private void make_2(){
-        if (isBlank(5)  )
+        if (isBlank(5))
             go(5);
         else if (isBlank(2) && isBlank(8))
             go(2);
@@ -70,6 +70,9 @@ class HumanPlaysFirst extends TicTacFunc{
     private void move4_h() {
         if (possWin('H') > 0){
             go(findLocationOf(possWin('H')));
+        }
+        else if(humanList.contains(2)){
+            go(3);
         }
         else{
             make_2();
