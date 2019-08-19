@@ -12,7 +12,7 @@ public class Main {
         MagicSquare magicSquare = new MagicSquare();
         magicSquare.initialise(board);
 
-        int coinToss = 0;
+        int coinToss = 1;
         if (coinToss == 0 ){
             computerPlaysFirst(board); //jackson
         }
@@ -50,17 +50,17 @@ public class Main {
         else if (isBlank(1))
             go(1);
         else if (isBlank(3))
-            go(1);
+            go(3);
         else if (isBlank(7))
-            go(1);
+            go(7);
         else if (isBlank(9))
-            go(1);
+            go(9);
 
     }
 
     private static void move4_h() {
         if (possWin('H') > 0){
-            go(possWin('H'));
+            go(findLocationOf(possWin('H')));
         }
         else{
             make_2();
@@ -68,12 +68,12 @@ public class Main {
     }
     private static void move6_h(){
         if (possWin('C')>0){
-            go(possWin('C'));
+            go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             return;
         }
         else if (possWin('H')>0){
-            go(possWin('H'));
+            go(findLocationOf(possWin('H')));
         }
         else
             make_2();
@@ -81,15 +81,15 @@ public class Main {
 
     private static void move8_h(){
         if (possWin('C')>0){
-            go(possWin('C'));
+            go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             return;
         }
         else if (possWin('H')>0){
-            go(possWin('H'));
+            go(findLocationOf(possWin('H')));
         }
         else
-            go(anywhere());
+            go(findLocationOf(anywhere()));
     }
 
     private static void computerPlaysFirst(int[][] board) {
@@ -120,17 +120,17 @@ public class Main {
 
     private static void move4() {
         if (possWin('C') > 0){
-            go(possWin('C'));
+            go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             return;
         }
         else if (possWin('H') > 0){
-            go(possWin('H'));
+            go(findLocationOf(possWin('H')));
             return;
         }
 
         else {
-            go(anywhere());
+            go(findLocationOf(anywhere()));
         }
     }
 
@@ -145,19 +145,21 @@ public class Main {
 
     private static void move3() {
         if (possWin('C') > 0){
-            go(possWin('C'));
+            go(findLocationOf(possWin('C')));
             System.out.println("won comp");
             return;
         }
         else if (possWin('H') > 0){
-            go(possWin('H'));
+            go(findLocationOf(possWin('H')));
             System.out.println("block");
         }
 
-        else if(isBlank(transpose(7))){
+        else if(isBlank(7)){
             go(7);
+            System.out.println("7 is empty");
         }
         else {
+            System.out.println("3 is empty");
             go(3);
         }
 
@@ -168,7 +170,7 @@ public class Main {
             for (int i = 0 ; i < computerList.size(); i ++){
                for (int j = i+1 ; j < computerList.size() ; j++ ){
                    int d = 15 - computerList.get(i) - computerList.get(j);
-                   if (isBlank(findLocationOf(d))){
+                   if (isBlank(findLocationOf(d)) && d<10){
                     return d;
                   }
                }
@@ -178,7 +180,7 @@ public class Main {
             for (int i = 0 ; i < humanList.size(); i ++){
                 for (int j = i+1 ; j < humanList.size() ; j++ ){
                     int d = 15 - humanList.get(i) - humanList.get(j);
-                    if (isBlank(findLocationOf(d))){
+                    if (isBlank(findLocationOf(d)) && d<10){
                         return d;
                     }
                 }
@@ -189,7 +191,8 @@ public class Main {
     }
 
     private static void move2() {
-        if (isBlank(transpose(9))){
+        if (isBlank(9)){
+            System.out.println("9 is blank");
             go(9);
         }
 
@@ -199,7 +202,7 @@ public class Main {
     }
 
     private static boolean isBlank(int i) {
-        int j = findLocationOf(i);
+        int j = transpose(i);
         if (computerList.contains(j) || humanList.contains(j)) {
             return false;
         }
@@ -215,9 +218,9 @@ public class Main {
         char [][] b = new char[3][3];
         int i;
         for (int j = 1; j < 10 ; j++){
-            if (isBlank(j)){
+            if (isBlank(findLocationOf(j))){
                 i = findLocationOf(j);
-                b[(i-1)/3][(i-1)%3] = 'M';
+                b[(i-1)/3][(i-1)%3] = '-';
             }
             else if(computerList.contains(j)){
                 i = findLocationOf(j);
@@ -253,7 +256,7 @@ public class Main {
     }
 
     private static void move1() {
-        go(5);
+        go(findLocationOf(5));
     }
 
 
