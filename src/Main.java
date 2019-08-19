@@ -5,9 +5,9 @@ public class Main {
     static int [][] board = new int[3][3];
     static ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
     static ArrayList<Integer> humanList = new ArrayList<>();    //saves the moves made by human
+    static Board b = new Board();
 
     public static void main(String[] args) {
-        Board b = new Board();
         MagicSquare magicSquare = new MagicSquare();
         magicSquare.initialise(board);
 
@@ -275,24 +275,8 @@ public class Main {
 
 
     private static void go(int i) {
-        if (i == 1)
-            computerList.add(8);
-        if (i == 2)
-            computerList.add(1);
-        if (i == 3)
-            computerList.add(6);
-        if (i == 4)
-            computerList.add(3);
-        if (i == 5)
-            computerList.add(5);
-        if (i == 6)
-            computerList.add(7);
-        if (i == 7)
-            computerList.add(4);
-        if (i == 8)
-            computerList.add(9);
-        if (i == 9)
-            computerList.add(2);
+        i = transpose(i);
+        computerList.add(i);
     }
 
 }
