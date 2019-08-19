@@ -25,36 +25,54 @@ public class Main {
     private static void humanPlaysFirst(int[][] board) {
         getHumanResponse();
         updateBoardUI();
-        make_2();
+        System.out.println(humanList+"  "+computerList);
+        move2_h();
         updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
 
         getHumanResponse();
         updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
         move4_h();
         updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
 
         getHumanResponse();
         updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
         move6_h();
         updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
 
         getHumanResponse();
         updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
         move8_h();
         updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
 
+        getHumanResponse();
+        updateBoardUI();
+        System.out.println(humanList+"  "+computerList);
     }
+    private static void move2_h(){
+        if (isBlank(5)){
+            go(5);
+        }else
+            go(1);
+    }
+
     private static void make_2(){
         if (isBlank(5))
             go(5);
-        else if (isBlank(1))
-            go(1);
-        else if (isBlank(3))
-            go(3);
-        else if (isBlank(7))
-            go(7);
-        else if (isBlank(9))
-            go(9);
+        else if (isBlank(2))
+            go(2);
+        else if (isBlank(4))
+            go(4);
+        else if (isBlank(8))
+            go(8);
+        else if (isBlank(6))
+            go(6);
 
     }
 
@@ -70,9 +88,9 @@ public class Main {
         if (possWin('C')>0){
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
-            return;
         }
         else if (possWin('H')>0){
+            System.out.println("block");
             go(findLocationOf(possWin('H')));
         }
         else
@@ -82,10 +100,10 @@ public class Main {
     private static void move8_h(){
         if (possWin('C')>0){
             go(findLocationOf(possWin('C')));
-            System.out.println("Computer Won");
-            return;
+            System.out.println("Computer Won in 8");
         }
         else if (possWin('H')>0){
+            System.out.println("blocking move 8");
             go(findLocationOf(possWin('H')));
         }
         else
@@ -170,8 +188,10 @@ public class Main {
             for (int i = 0 ; i < computerList.size(); i ++){
                for (int j = i+1 ; j < computerList.size() ; j++ ){
                    int d = 15 - computerList.get(i) - computerList.get(j);
-                   if (isBlank(findLocationOf(d)) && d<10){
-                    return d;
+                   System.out.println("difference is: "+d);
+                   if (isBlank(findLocationOf(d)) && d<10 && d>0){
+                       System.out.println("found d");
+                       return d;
                   }
                }
             }
@@ -180,7 +200,7 @@ public class Main {
             for (int i = 0 ; i < humanList.size(); i ++){
                 for (int j = i+1 ; j < humanList.size() ; j++ ){
                     int d = 15 - humanList.get(i) - humanList.get(j);
-                    if (isBlank(findLocationOf(d)) && d<10){
+                    if (isBlank(findLocationOf(d)) && d<10 && d>0){
                         return d;
                     }
                 }
