@@ -34,7 +34,7 @@ public class Board extends JFrame {
                 isClicked = true;
                 Main.humanList.add(Main.transpose(1));
                System.out.println("button 1 is clicked");
-            });
+           });
            button2.addActionListener(e -> {
                isClicked = true;
                Main.humanList.add(Main.transpose(2));
