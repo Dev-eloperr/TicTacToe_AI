@@ -22,6 +22,8 @@ class ComputerPlaysFirst extends TicTacFunc{
         move4();
         updateBoardUI();System.out.println(humanList+"  "+computerList);
         getHumanResponse();
+
+        checkDraw();
     }
 
     private  void move4() {
@@ -29,6 +31,8 @@ class ComputerPlaysFirst extends TicTacFunc{
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             flag=1;
+            updateBoardUI();
+            declareWinner(flag);
         }
         else if (possWin('H') > 0){
             go(findLocationOf(possWin('H')));
@@ -46,6 +50,8 @@ class ComputerPlaysFirst extends TicTacFunc{
             go(findLocationOf(possWin('C')));
             System.out.println("won comp");
             flag=1;
+            updateBoardUI();
+            declareWinner(flag);
         }
         else if (possWin('H') > 0){
             go(findLocationOf(possWin('H')));
@@ -79,7 +85,5 @@ class ComputerPlaysFirst extends TicTacFunc{
     private  void move1() {
         go(findLocationOf(5));
     }
-
-
 
 }

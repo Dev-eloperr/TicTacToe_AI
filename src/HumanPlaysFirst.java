@@ -4,6 +4,7 @@ class HumanPlaysFirst extends TicTacFunc{
         getHumanResponse();
         updateBoardUI();
         System.out.println();
+        timer();
 
         move2_h();
         updateBoardUI();
@@ -12,6 +13,7 @@ class HumanPlaysFirst extends TicTacFunc{
         getHumanResponse();
         updateBoardUI();
         System.out.println();
+        timer();
 
         move4_h();
         updateBoardUI();
@@ -20,6 +22,7 @@ class HumanPlaysFirst extends TicTacFunc{
         getHumanResponse();
         updateBoardUI();
         System.out.println();
+        timer();
 
         move6_h();
         updateBoardUI();
@@ -28,6 +31,7 @@ class HumanPlaysFirst extends TicTacFunc{
         getHumanResponse();
         updateBoardUI();
         System.out.println();
+        timer();
 
         move8_h();
         updateBoardUI();
@@ -36,7 +40,10 @@ class HumanPlaysFirst extends TicTacFunc{
         getHumanResponse();
         updateBoardUI();
         System.out.println();
+
+        checkDraw();
     }
+
 
     private void move2_h(){
         if (isBlank(5)){
@@ -71,7 +78,7 @@ class HumanPlaysFirst extends TicTacFunc{
         if (possWin('H') > 0){
             go(findLocationOf(possWin('H')));
         }
-        else if(humanList.contains(2)){
+        else if(humanList.contains(2) && humanList.contains(5)){
             go(3);
         }
         else{
@@ -83,6 +90,8 @@ class HumanPlaysFirst extends TicTacFunc{
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             flag=1;
+            updateBoardUI();
+            declareWinner(flag);
 
         }
         else if (possWin('H')>0){
@@ -98,6 +107,8 @@ class HumanPlaysFirst extends TicTacFunc{
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             flag=1;
+            updateBoardUI();
+            declareWinner(flag);
         }
         else if (possWin('H')>0){
             System.out.println("blocking move 8");

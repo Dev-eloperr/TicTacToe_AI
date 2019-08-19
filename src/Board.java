@@ -17,9 +17,20 @@ public class Board extends TicTacFunc {
     JButton button9 = new JButton();
 
        Board(){
+
+           button1.setBackground(Color.white);
+           button2.setBackground(Color.white);
+           button3.setBackground(Color.white);
+           button4.setBackground(Color.white);
+           button5.setBackground(Color.white);
+           button6.setBackground(Color.white);
+           button7.setBackground(Color.white);
+           button8.setBackground(Color.white);
+           button9.setBackground(Color.white);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Tic Tac Toe");
-       setSize(800,800);
+       setSize(400,400);
         setLayout(new GridLayout(3,3));
            button1.setFont(new Font("Arial", Font.PLAIN, 80));
            button2.setFont(new Font("Arial", Font.PLAIN, 80));
@@ -79,6 +90,9 @@ public class Board extends TicTacFunc {
             add(button8);
             add(button9);
             setVisible(true);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setLocationRelativeTo(null);
+            setlo
     }
 
 }

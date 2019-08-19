@@ -11,9 +11,30 @@ class MagicSquare {
     }
 
     private void display(int[][] magicSquare) {
-        for (int[] ints : magicSquare) {
+        for (int i = 0 ; i < 3 ; i++) {
             for (int j = 0; j < magicSquare[0].length; j++) {
-                System.out.print(ints[j] + " ");
+                int k = j+1 +(i*3);
+                switch (k){
+                        case 1: Main.b.button1.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 2: Main.b.button2.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 3: Main.b.button3.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 4: Main.b.button4.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 5: Main.b.button5.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 6: Main.b.button6.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 7: Main.b.button7.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 8: Main.b.button8.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                        case 9: Main.b.button9.setText(Integer.toString(magicSquare[i][j]));
+                        break;
+                }
+                System.out.print( magicSquare[i][j]+ " ");
             }
             System.out.println();
         }

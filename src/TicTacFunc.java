@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 class TicTacFunc extends JFrame {
      ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
@@ -13,6 +12,20 @@ class TicTacFunc extends JFrame {
             }
         }
         return 0;
+    }
+
+    void declareWinner(int flag){
+        if (flag == 1){
+            JOptionPane.showMessageDialog(null,"Sorry! you lost.\n Better luck next time ;)");
+        }
+        Main.b.setVisible(false);
+        System.exit(0);
+    }
+
+    void checkDraw(){
+        JOptionPane.showMessageDialog(null,"This match is a Draw!");
+        Main.b.setVisible(false);
+        System.exit(0);
     }
 
     int findLocationOf(int i) {
@@ -50,7 +63,13 @@ class TicTacFunc extends JFrame {
         i = transpose(i);
         computerList.add(i);
     }
-
+    void timer(){
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
      void updateBoardUI() {
         char [][] b = new char[3][3];
         int i;
@@ -81,46 +100,46 @@ class TicTacFunc extends JFrame {
             else if(computerList.contains(j)){
                 i = findLocationOf(j);
                 switch (i){
-                    case 1: Main.b.button1.setText("O");
+                    case 1: Main.b.button1.setText("O"); Main.b.button1.setEnabled(false);
                         break;
-                    case 2: Main.b.button2.setText("O");
+                    case 2: Main.b.button2.setText("O"); Main.b.button2.setEnabled(false);
                         break;
-                    case 3: Main.b.button3.setText("O");
+                    case 3: Main.b.button3.setText("O"); Main.b.button3.setEnabled(false);
                         break;
-                    case 4: Main.b.button4.setText("O");
+                    case 4: Main.b.button4.setText("O"); Main.b.button4.setEnabled(false);
                         break;
-                    case 5: Main.b.button5.setText("O");
+                    case 5: Main.b.button5.setText("O"); Main.b.button5.setEnabled(false);
                         break;
-                    case 6: Main.b.button6.setText("O");
+                    case 6: Main.b.button6.setText("O"); Main.b.button6.setEnabled(false);
                         break;
-                    case 7: Main.b.button7.setText("O");
+                    case 7: Main.b.button7.setText("O"); Main.b.button7.setEnabled(false);
                         break;
-                    case 8: Main.b.button8.setText("O");
+                    case 8: Main.b.button8.setText("O"); Main.b.button8.setEnabled(false);
                         break;
-                    case 9: Main.b.button9.setText("O");
+                    case 9: Main.b.button9.setText("O"); Main.b.button9.setEnabled(false);
                         break;
                 }
             }
             else if(humanList.contains(j)){
                 i = findLocationOf(j);
                 switch (i){
-                    case 1: Main.b.button1.setText("X");
+                    case 1: Main.b.button1.setText("X"); Main.b.button1.setEnabled(false);
                         break;
-                    case 2: Main.b.button2.setText("X");
+                    case 2: Main.b.button2.setText("X"); Main.b.button2.setEnabled(false);
                         break;
-                    case 3: Main.b.button3.setText("X");
+                    case 3: Main.b.button3.setText("X"); Main.b.button3.setEnabled(false);
                         break;
-                    case 4: Main.b.button4.setText("X");
+                    case 4: Main.b.button4.setText("X"); Main.b.button4.setEnabled(false);
                         break;
-                    case 5: Main.b.button5.setText("X");
+                    case 5: Main.b.button5.setText("X"); Main.b.button5.setEnabled(false);
                         break;
-                    case 6: Main.b.button6.setText("X");
+                    case 6: Main.b.button6.setText("X"); Main.b.button6.setEnabled(false);
                         break;
-                    case 7: Main.b.button7.setText("X");
+                    case 7: Main.b.button7.setText("X"); Main.b.button7.setEnabled(false);
                         break;
-                    case 8: Main.b.button8.setText("X");
+                    case 8: Main.b.button8.setText("X"); Main.b.button8.setEnabled(false);
                         break;
-                    case 9: Main.b.button9.setText("X");
+                    case 9: Main.b.button9.setText("X"); Main.b.button9.setEnabled(false);
                         break;
                 }
             }
@@ -135,12 +154,8 @@ class TicTacFunc extends JFrame {
     }
 
     void getHumanResponse() {
-        int s = 0;
-        //Scanner s = new Scanner(System.in);
-        //humanList.add(transpose(s.nextInt()));
         while(true){
-            //System.out.println(Main.b.isClicked);
-            System.out.println("1");
+            System.out.println("Waiting");
             if (Main.b.isClicked){
                 humanList.add(transpose(Main.b.buttonNo));
                 Main.b.isClicked = false;
