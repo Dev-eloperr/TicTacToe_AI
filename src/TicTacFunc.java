@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class TicTacFunc {
+class TicTacFunc extends JFrame {
      ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
      ArrayList<Integer> humanList = new ArrayList<>();    //saves the moves made by human
-    //
+    int flag=0;//no one won 1->C won 2->H won
     int anywhere() {
         for (int i = 1 ; i < 10 ; i ++){
             if (!computerList.contains(i) && !humanList.contains(i)){
@@ -29,7 +30,7 @@ class TicTacFunc {
         return 0;
     }
 
-    private int transpose(int i){
+    int transpose(int i){
         switch (i){
             case 1: return 8;
             case 2: return 1;
@@ -76,9 +77,10 @@ class TicTacFunc {
         }
     }
 
-    void getHumanResponse() {
-        Scanner s = new Scanner(System.in);
-        humanList.add(transpose(s.nextInt()));
+    void getHumanResponse(int s) {
+        //Scanner s = new Scanner(System.in);
+        //humanList.add(transpose(s.nextInt()));
+        humanList.add(transpose(s));
     }
 
     boolean isBlank(int i) {

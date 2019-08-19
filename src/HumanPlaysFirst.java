@@ -82,6 +82,8 @@ class HumanPlaysFirst extends TicTacFunc{
         if (possWin('C')>0){
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
+            flag=1;
+
         }
         else if (possWin('H')>0){
             System.out.println("block");
@@ -94,7 +96,8 @@ class HumanPlaysFirst extends TicTacFunc{
     private void move8_h(){
         if (possWin('C')>0){
             go(findLocationOf(possWin('C')));
-            System.out.println("Computer Won in 8");
+            System.out.println("Computer Won");
+            flag=1;
         }
         else if (possWin('H')>0){
             System.out.println("blocking move 8");
