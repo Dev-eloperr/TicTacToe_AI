@@ -21,8 +21,6 @@ class ComputerPlaysFirst extends TicTacFunc{
 
         move4();
         updateBoardUI();System.out.println(humanList+"  "+computerList);
-        getHumanResponse();
-
         checkDraw();
     }
 
