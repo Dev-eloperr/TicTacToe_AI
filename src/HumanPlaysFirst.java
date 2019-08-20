@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 class HumanPlaysFirst extends TicTacFunc{
 
     void start() {
@@ -86,6 +89,7 @@ class HumanPlaysFirst extends TicTacFunc{
         }
     }
     private void move6_h(){
+
         if (possWin('C')>0){
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
@@ -97,7 +101,16 @@ class HumanPlaysFirst extends TicTacFunc{
         else if (possWin('H')>0){
             System.out.println("block");
             go(findLocationOf(possWin('H')));
+        }else if(humanList.containsAll(Arrays.asList(transpose(1),transpose(6),transpose(8)))){
+            go(9);
+        }else if(humanList.containsAll(Arrays.asList(transpose(9),transpose(2),transpose(4)))){
+            go(1);
+        }else if(humanList.containsAll(Arrays.asList(transpose(7),transpose(2),transpose(6)))){
+            go(3);
+        }else if (humanList.containsAll(Arrays.asList(transpose(3),transpose(4),transpose(8)))){
+            go(7);
         }
+
         else
             make_2();
     }
