@@ -1,5 +1,7 @@
 class ComputerPlaysFirst extends TicTacFunc{
-
+    /**
+     * A driver class which drives the computer's moves when it plays first
+     */
     void start() {
         move1();
         updateBoardUI();
@@ -24,20 +26,23 @@ class ComputerPlaysFirst extends TicTacFunc{
         checkDraw();
     }
 
+    /**
+     * the 4th move
+     */
     private  void move4() {
-        if (possWin('C') > 0){
+        if (possWin('C') > 0){              // if computer can win, go ahead and win
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             flag=1;
             updateBoardUI();
             declareWinner(flag);
         }
-        else if (possWin('H') > 0){
+        else if (possWin('H') > 0){             //if human can win block it
             go(findLocationOf(possWin('H')));
         }
 
         else {
-            go(findLocationOf(anywhere()));
+            go(findLocationOf(anywhere()));         // else go anywhere
         }
     }
 
@@ -69,7 +74,7 @@ class ComputerPlaysFirst extends TicTacFunc{
 
 
 
-    private  void move2() {
+    private  void move2() {                     //the move computer plays second time
         if (isBlank(9)){
             System.out.println("9 is blank");
             go(9);
@@ -79,7 +84,7 @@ class ComputerPlaysFirst extends TicTacFunc{
             go(3);
         }
     }
-    private  void move1() {
+    private  void move1() {                     //the move computer plays first
         go(findLocationOf(5));
     }
 }

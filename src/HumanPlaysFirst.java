@@ -1,5 +1,8 @@
 class HumanPlaysFirst extends TicTacFunc{
 
+    /**
+     * the driver class to drive the computer moves
+     */
     void start() {
         getHumanResponse();
         updateBoardUI();
@@ -45,6 +48,9 @@ class HumanPlaysFirst extends TicTacFunc{
     }
 
 
+    /**
+     * a function which defines the second move the computer plays
+     */
     private void move2_h(){
         if (isBlank(5)){
             go(5);
@@ -52,6 +58,9 @@ class HumanPlaysFirst extends TicTacFunc{
             go(1);
     }
 
+    /**
+     * a function which makes a move in a non corner square
+     */
     private void make_2(){
         if (isBlank(5))
             go(5);
@@ -85,6 +94,10 @@ class HumanPlaysFirst extends TicTacFunc{
             make_2();
         }
     }
+
+    /**
+     * The sixth move of the computer
+     */
     private void move6_h(){
         if (possWin('C')>0){
             go(findLocationOf(possWin('C')));
@@ -102,13 +115,16 @@ class HumanPlaysFirst extends TicTacFunc{
             make_2();
     }
 
+    /**
+     * The 8 th move of the computer
+     */
     private void move8_h(){
         if (possWin('C')>0){
             go(findLocationOf(possWin('C')));
             System.out.println("Computer Won");
             flag=1;
             updateBoardUI();
-            declareWinner(flag);
+            declareWinner(flag);        //if computer or player wins display it
         }
         else if (possWin('H')>0){
             System.out.println("blocking move 8");
