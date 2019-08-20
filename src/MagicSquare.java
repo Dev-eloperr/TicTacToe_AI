@@ -1,4 +1,8 @@
 class MagicSquare {
+    /**
+     * a class which makes a magic square
+     * @param board
+     */
     void initialise(int[][] board) {
         int n = 1;
 
@@ -11,6 +15,9 @@ class MagicSquare {
     }
 
     private void display(int[][] magicSquare) {
+        /**
+         * sets the gui to display the magic square
+         */
         for (int i = 0 ; i < 3 ; i++) {
             for (int j = 0; j < magicSquare[0].length; j++) {
                 int k = j+1 +(i*3);
@@ -41,6 +48,9 @@ class MagicSquare {
     }
 
     private void increment(SetXY setXY, int[][] magicSquare) {
+        /**
+         * a function which runs diagonally across the matrix
+         */
         int x = setXY.x;
         int y = setXY.y;
         x--;
@@ -62,6 +72,9 @@ class MagicSquare {
     }
 
     class SetXY {
+        /**
+         * a utility class to intelligently use x and y to manipulate the magic square
+         */
         int x;
         int y;
 
