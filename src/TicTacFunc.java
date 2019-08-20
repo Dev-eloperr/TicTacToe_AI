@@ -116,6 +116,10 @@ class TicTacFunc extends JFrame {
         int i;
         for (int j = 1; j < 10 ; j++){
             if (isBlank(findLocationOf(j))){
+                /**
+                 * if the passed parameter is not in either of the
+                 * lists then set the button text as empty
+                 */
                 i = findLocationOf(j);
                 switch (i){
                     case 1: Main.b.button1.setText("");
@@ -139,6 +143,10 @@ class TicTacFunc extends JFrame {
                 }
             }
             else if(computerList.contains(j)){
+                /**
+                 * if the passed parameter is  in computer
+                 * list then set the button text as O
+                 */
                 i = findLocationOf(j);
                 switch (i){
                     case 1: Main.b.button1.setText("O"); Main.b.button1.setEnabled(false);
@@ -162,6 +170,10 @@ class TicTacFunc extends JFrame {
                 }
             }
             else if(humanList.contains(j)){
+                /**
+                 * if the passed parameter is in human list then set
+                 * the button text as X
+                 */
                 i = findLocationOf(j);
                 switch (i){
                     case 1: Main.b.button1.setText("X"); Main.b.button1.setEnabled(false);
@@ -198,8 +210,14 @@ class TicTacFunc extends JFrame {
      * Waits for the player to play, and gets his response.
      */
     void getHumanResponse() {
+        /**
+         * this waits till a button is clicked
+         */
         while(true){
             System.out.println("Waiting");
+            /**
+             * preventing race condition
+             */
             if (Main.b.isClicked){
                 humanList.add(transpose(Main.b.buttonNo));
                 Main.b.isClicked = false;
@@ -216,6 +234,11 @@ class TicTacFunc extends JFrame {
      */
     boolean isBlank(int i) {
         int j = transpose(i);
+        /**
+         * checks whether the transpose of the number passed
+         * as a parameter is in any of the list
+         * and returns true if it is not
+         */
         return !computerList.contains(j) && !humanList.contains(j);
     }
 
@@ -226,6 +249,11 @@ class TicTacFunc extends JFrame {
      */
     int possWin(char c) {
         if (c == 'C') {
+            /**
+             * first checks whether computer can win.
+             * iteratively checks all pair of elements, and compare the difference
+             * with all elements which are in the list
+             */
             for (int i = 0 ; i < computerList.size(); i ++){
                 for (int j = i+1 ; j < computerList.size() ; j++ ){
                     int d = 15 - computerList.get(i) - computerList.get(j);

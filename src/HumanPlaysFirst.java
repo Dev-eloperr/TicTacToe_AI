@@ -90,6 +90,10 @@ class HumanPlaysFirst extends TicTacFunc{
         if (possWin('H') > 0){
             go(findLocationOf(possWin('H')));
         }
+        /**
+         * to tackle double corner attack strategy
+         * this special function is used.
+         */
         else if(humanList.contains(2) && humanList.contains(5)){
             go(3);
         }else if(humanList.containsAll(Arrays.asList(transpose(6),transpose(8))) && isBlank(9)){
@@ -121,6 +125,10 @@ class HumanPlaysFirst extends TicTacFunc{
         }
         else if (possWin('H')>0){
             System.out.println("block");
+            /**
+             * to tackle double corner attack strategy
+             * this special function is used.
+             */
             go(findLocationOf(possWin('H')));
         }else if(humanList.containsAll(Arrays.asList(transpose(1),transpose(6),transpose(8))) && isBlank(9)){
             go(9);

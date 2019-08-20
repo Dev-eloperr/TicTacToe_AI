@@ -5,7 +5,10 @@ class MagicSquare {
      */
     void initialise(int[][] board) {
         int n = 1;
-
+        /**
+         * this function initialises the board
+         * with magic square
+         */
         SetXY setXY = new SetXY(3);
         for (int i = 0; i < 3 * 3; i++) {
             board[setXY.x][setXY.y] = n++;
