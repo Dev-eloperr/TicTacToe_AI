@@ -1,9 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * A class which presents the graphical user interface of the tic tac toe board game.
+ */
+
 class Board extends TicTacFunc {
     boolean isClicked = false;
     int buttonNo = 0;
+    /**
+     * 9 buttons representing the nine tiles of the game
+     */
     JButton button1 = new JButton();
     JButton button3 = new JButton();
     JButton button4 = new JButton();
@@ -15,6 +22,9 @@ class Board extends TicTacFunc {
     JButton button9 = new JButton();
 
        Board(){
+           /**
+            * setting the color to white of each tile
+            */
 
            button1.setBackground(Color.white);
            button2.setBackground(Color.white);
@@ -26,9 +36,9 @@ class Board extends TicTacFunc {
            button8.setBackground(Color.white);
            button9.setBackground(Color.white);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   //the close operation
         setTitle("Tic Tac Toe");
-       setSize(400,400);
+        setSize(400,400);
         setLayout(new GridLayout(3,3));
            button1.setFont(new Font("Arial", Font.PLAIN, 80));
            button2.setFont(new Font("Arial", Font.PLAIN, 80));
@@ -40,6 +50,9 @@ class Board extends TicTacFunc {
            button8.setFont(new Font("Arial", Font.PLAIN, 80));
            button9.setFont(new Font("Arial", Font.PLAIN, 80));
 
+           /**
+            * The action listeners which listen for button click to see what the player has played
+            */
            button1.addActionListener(e -> {
                 isClicked = true;
                 buttonNo = 1;

@@ -2,9 +2,19 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 class TicTacFunc extends JFrame {
+    /**
+     * The class with all the utility functions required to run the game.
+     * Both computer plays first class and human plays first class extend
+     * this one as they all have some basic moves which are common to them
+     */
      ArrayList<Integer> computerList = new ArrayList<>(); //saves the moves made by AI
      ArrayList<Integer> humanList = new ArrayList<>();    //saves the moves made by human
     int flag=0;//no one won 1->C won 2->H won
+
+    /**
+     * this function returns a square number which is available
+     *
+     */
     int anywhere() {
         for (int i = 1 ; i < 10 ; i ++){
             if (!computerList.contains(i) && !humanList.contains(i)){
@@ -14,6 +24,10 @@ class TicTacFunc extends JFrame {
         return 0;
     }
 
+    /**
+     * declares whether computer or player has won the game
+     * @param flag
+     */
     void declareWinner(int flag){
         if (flag == 1){
             JOptionPane.showMessageDialog(null,"Sorry! you lost.\n Better luck next time ;)");
@@ -22,12 +36,20 @@ class TicTacFunc extends JFrame {
         System.exit(0);
     }
 
+    /**
+     * This function checks whether the game is drawn or not
+     */
     void checkDraw(){
         JOptionPane.showMessageDialog(null,"This match is a Draw!");
         Main.b.setVisible(false);
         System.exit(0);
     }
 
+    /**
+     * finds the location of the magic square no in the regular square
+     * @param i
+     * @return
+     */
     int findLocationOf(int i) {
         switch (i){
             case 1: return 2;
@@ -43,6 +65,12 @@ class TicTacFunc extends JFrame {
         return 0;
     }
 
+
+    /**
+     * finds the magic square no. corresponding to the given regular tile number.
+     * @param i
+     * @return
+     */
     int transpose(int i){
         switch (i){
             case 1: return 8;
@@ -59,10 +87,19 @@ class TicTacFunc extends JFrame {
     }
 
 
+    /**
+     * takes a parameter i and transposes it, and then adds it to the list
+     * of computer moves.
+     * @param i
+     */
     void go(int i) {
         i = transpose(i);
         computerList.add(i);
     }
+
+    /**
+     * a timer function to delay the display of computer move to give a more realistic method.
+     */
     void timer(){
         try {
             Thread.sleep(500);
@@ -70,7 +107,11 @@ class TicTacFunc extends JFrame {
             e.printStackTrace();
         }
     }
-     void updateBoardUI() {
+
+    /**
+     * updates the board GUI, sets X where human plays and O where computer plays.
+     */
+    void updateBoardUI() {
         char [][] b = new char[3][3];
         int i;
         for (int j = 1; j < 10 ; j++){
@@ -153,6 +194,9 @@ class TicTacFunc extends JFrame {
         }
     }
 
+    /**
+     * Waits for the player to play, and gets his response.
+     */
     void getHumanResponse() {
         while(true){
             System.out.println("Waiting");
@@ -164,11 +208,22 @@ class TicTacFunc extends JFrame {
         }
     }
 
+
+    /**
+     * Checks whether the given parameter is blank or not
+     * @param i
+     * @return
+     */
     boolean isBlank(int i) {
         int j = transpose(i);
         return !computerList.contains(j) && !humanList.contains(j);
     }
 
+    /**
+     * Checks whether human or computer can win.
+     * @param c
+     * @return
+     */
     int possWin(char c) {
         if (c == 'C') {
             for (int i = 0 ; i < computerList.size(); i ++){
