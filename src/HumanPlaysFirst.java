@@ -83,6 +83,8 @@ class HumanPlaysFirst extends TicTacFunc{
             go(8);
         else if (isBlank(6))
             go(6);
+        else
+            go(findLocationOf(anywhere()));
 
     }
 
