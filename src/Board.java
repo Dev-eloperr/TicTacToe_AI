@@ -105,7 +105,9 @@ class Board extends TicTacFunc {
 
             setVisible(true);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setLocationRelativeTo(null);
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+           System.out.println(screenSize);
+            setLocation((int)(screenSize.getWidth()/2.0)-200,0);
     }
 }
 
