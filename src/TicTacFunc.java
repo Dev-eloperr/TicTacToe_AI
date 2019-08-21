@@ -198,6 +198,9 @@ class TicTacFunc extends JFrame {
             }
         }
 
+        Main.contentList.humanData.setText("Human content list: "+humanList);
+        Main.contentList.computerData.setText("Computer content list: "+computerList);
+
         for (i = 0; i < b.length; i++) {
             for (int j = 0; j < b[0].length; j++) {
                 System.out.print(b[i][j] + " ");

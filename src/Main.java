@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class Main {
     static Board b = new Board();
-
+    static ContentList contentList = new ContentList();
     /**
      * the driver function to start the code
      * @param args
@@ -32,6 +32,8 @@ public class Main {
             HumanPlaysFirst humanPlaysFirst = new HumanPlaysFirst();
             humanPlaysFirst.start();
         }
+
+
     }
 }
 

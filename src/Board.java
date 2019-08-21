@@ -25,7 +25,7 @@ class Board extends TicTacFunc {
            /**
             * setting the color to white of each tile
             */
-
+           
            button1.setBackground(Color.white);
            button2.setBackground(Color.white);
            button3.setBackground(Color.white);
@@ -91,6 +91,8 @@ class Board extends TicTacFunc {
                buttonNo = 9;
            });
 
+
+
             add(button1);
             add(button2);
             add(button3);
@@ -100,8 +102,10 @@ class Board extends TicTacFunc {
             add(button7);
             add(button8);
             add(button9);
+
             setVisible(true);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setLocationRelativeTo(null);
     }
 }
+
